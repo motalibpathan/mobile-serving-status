@@ -18,7 +18,6 @@ const Status = () => {
   useEffect(() => {
     const getAllStatus = async () => {
       try {
-        console.log("axiosInstance", axiosInstance);
         const res = await axiosInstance.get("/status");
         setStatusData(res.data);
         const reversedStatusData = res.data.data.reverse();
