@@ -1,9 +1,17 @@
 import axios from "axios";
 
-const axiosInstance = axios.create({
-  baseURL: window.location.hostname.includes("https")
+console.log(
+  window.location.hostname.includes("https")
     ? window.location.hostname.includes("https") + "/api"
-    : "http://localhost:3000/api",
+    : "http://localhost:3000/api"
+);
+
+const baseURL = window.location.hostname.includes("https")
+  ? window.location.hostname.includes("https") + "/api"
+  : "http://localhost:3000/api";
+
+const axiosInstance = axios.create({
+  baseURL,
 });
 
 export default axiosInstance;
