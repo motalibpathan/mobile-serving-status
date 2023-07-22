@@ -1,8 +1,8 @@
 import axios from "axios";
 
 console.log(
-  window.location.hostname.includes("https")
-    ? window.location.hostname.includes("https") + "/api"
+  window.location.protocol === "https:"
+    ? window.location.hostname + "/api"
     : "http://localhost:3000/api"
 );
 
