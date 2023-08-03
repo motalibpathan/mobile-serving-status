@@ -13,9 +13,9 @@ app.use("/api/status/", statusRoute);
 app.use("/api/user/", userRoute);
 app.use("/api/auth/", authRoute);
 
-// if home or root route
-app.get("/", (req, res) => {
-  res.send("<h1>this is home route 12</h1>");
+app.use(express.static("./client/dist"));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
 // if unknown route
