@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const app = require("./app");
 require("dotenv").config();
-const port = 4000;
-const hostname = "127.0.0.1";
+const port = process.env.PORT || 4000;
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -17,6 +16,6 @@ mongoose.connection.on("error", (error) => {
   console.error("Error connecting to MongoDB Atlas:", error);
 });
 
-app.listen(port, hostname, () => {
-  console.log(`Server is running at http://${hostname}:${port}`);
+app.listen(port, () => {
+  console.log(`Server is running at ${port}`);
 });
